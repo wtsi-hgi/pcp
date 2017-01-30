@@ -791,8 +791,8 @@ def processMD5(statedb, payload):
                        % (workerrank, timestamp(), filename, srcmd5, md5sum, attempt))
                 # TODO: Save corrupt segments of files.
                 if chunk < 0:
-                    corruptfile = destfile+"_CORRUPTED_%i" %attempt
                     destfile = mungePath(sourcedir, destdir, filename)
+                    corruptfile = destfile + "_CORRUPTED_%i" % attempt
                     print ("R%i: %s Renaming corrupt file as %s for later analysis." 
                            % (workerrank, timestamp(), corruptfile))
                     os.rename (destfile, corruptfile)
